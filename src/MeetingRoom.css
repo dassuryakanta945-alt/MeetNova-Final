@@ -1,0 +1,352 @@
+/* =================================
+   MEETNOVA FULL SCREEN MEETING ROOM
+================================= */
+
+.meeting-room-page {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #0B1120;
+  color: #F1F5F9;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+.meeting-room-card {
+  width: 100%;
+  max-width: 1500px;
+  min-width: 0;
+  padding: 24px;
+  border-radius: 18px;
+  background: #151F32;
+  border: 1px solid #263449;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+
+.meeting-room-label {
+  color: #8B9CFF;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.meeting-room-card h1 {
+  margin: 10px 0 16px;
+  font-size: clamp(20px, 3vw, 30px);
+  overflow-wrap: anywhere;
+}
+
+/* MEETING ID */
+
+.meeting-room-id {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: #94A3B8;
+  font-size: 13px;
+}
+
+.meeting-room-id strong {
+  color: #8B9CFF;
+  overflow-wrap: anywhere;
+}
+
+/* LOCAL VIDEO */
+
+.meeting-video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 65vh;
+  min-height: 180px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #050914;
+}
+
+.meeting-local-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scaleX(-1);
+  background: #050914;
+}
+
+/* CAMERA OFF */
+
+.camera-off-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #151F32;
+  color: #FFFFFF;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* REMOTE PARTICIPANTS GRID */
+
+.meeting-remote-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 18px;
+}
+
+.meeting-remote-video-card {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #050914;
+  border: 1px solid #263449;
+}
+
+.meeting-remote-video-card video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #050914;
+}
+
+.meeting-participant-name {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  max-width: calc(100% - 24px);
+  padding: 6px 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ERROR */
+
+.meeting-error {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 9px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #F87171;
+  font-size: 14px;
+}
+
+/* MEETING CONTROLS */
+
+.meeting-controls {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 14px 0;
+  background: #151F32;
+}
+
+.meeting-controls button {
+  min-height: 46px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 10px;
+  background: #4F6DF5;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  touch-action: manipulation;
+}
+
+.meeting-controls button:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.meeting-controls button:active {
+  transform: scale(0.97);
+}
+
+.meeting-controls .meeting-leave-button {
+  background: #EF4444;
+}
+
+/* =================================
+   MINIMIZED MEETING WINDOW
+================================= */
+
+.meeting-room-page.is-minimized {
+  inset: auto 20px 20px auto;
+  width: min(360px, calc(100vw - 24px));
+  height: auto;
+  min-height: 0;
+  max-height: 75dvh;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.meeting-room-page.is-minimized .meeting-room-card {
+  width: 100%;
+  max-height: 75dvh;
+  padding: 12px;
+  overflow-y: auto;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
+}
+
+.meeting-room-page.is-minimized .meeting-room-id,
+.meeting-room-page.is-minimized .meeting-remote-grid {
+  display: none;
+}
+
+.meeting-room-page.is-minimized .meeting-video-container {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+
+.meeting-room-page.is-minimized .meeting-controls {
+  position: static;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.meeting-room-page.is-minimized .meeting-controls button {
+  min-height: 38px;
+  padding: 0 10px;
+  font-size: 11px;
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+  .meeting-room-page {
+    padding: 16px;
+  }
+
+  .meeting-room-card {
+    padding: 18px;
+  }
+
+  .meeting-remote-grid {
+    gap: 12px;
+  }
+
+  .meeting-controls {
+    gap: 9px;
+  }
+
+  .meeting-controls button {
+    padding: 0 16px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .meeting-room-page {
+    padding: 10px;
+  }
+
+  .meeting-room-card {
+    padding: 13px;
+    border-radius: 12px;
+  }
+
+  .meeting-video-container {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    max-height: none;
+  }
+
+  .meeting-remote-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .meeting-remote-video-card {
+    aspect-ratio: 16 / 9;
+  }
+
+  .meeting-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .meeting-controls button {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  .meeting-controls .meeting-leave-button {
+    grid-column: 1 / -1;
+  }
+
+  .meeting-room-page.is-minimized {
+    right: 8px;
+    bottom: 8px;
+    width: min(300px, calc(100vw - 16px));
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 320px) {
+  .meeting-room-page {
+    padding: 6px;
+  }
+
+  .meeting-room-card {
+    padding: 9px;
+  }
+
+  .meeting-controls button {
+    font-size: 11px;
+    padding: 0 5px;
+  }
+}
+
+/* LARGE SCREENS */
+
+@media (min-width: 1600px) {
+  .meeting-room-card {
+    max-width: 1700px;
+    padding: 32px;
+  }
+
+  .meeting-remote-grid {
+    gap: 22px;
+  }
+}

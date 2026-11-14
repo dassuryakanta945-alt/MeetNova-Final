@@ -1,0 +1,517 @@
+.register-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(78, 91, 220, 0.18),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #070b1b 0%,
+      #050816 52%,
+      #09061a 100%
+    );
+
+  color: #ffffff;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+  padding: 38px 36px 32px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #fafbff 55%,
+      #f5f6fb 100%
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.38),
+    0 10px 30px rgba(0, 0, 0, 0.12),
+    0 0 35px rgba(93, 105, 230, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+  animation:
+    registerCardEntrance 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes registerCardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* LOGO */
+
+.register-logo {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #6674ff,
+      #4d59d5
+    );
+
+  box-shadow:
+    0 12px 28px rgba(76, 89, 215, 0.25);
+}
+
+.register-camera-icon {
+  position: relative;
+
+  width: 22px;
+  height: 15px;
+
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.register-camera-icon::after {
+  content: "";
+
+  position: absolute;
+  right: -9px;
+  top: 2px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid #ffffff;
+}
+
+.register-camera-icon::before {
+  content: "";
+
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  top: 3px;
+  left: 4px;
+
+  border-radius: 50%;
+
+  background: #b8c0ff;
+}
+
+/* HEADING */
+
+.register-card h1 {
+  margin: 0;
+
+  text-align: center;
+
+  color: #171b35;
+
+  font-size: 25px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.register-subtitle {
+  margin: 9px 0 28px;
+
+  text-align: center;
+
+  color: #70758d;
+
+  font-size: 13px;
+}
+
+/* FORM */
+
+.register-field {
+  margin-bottom: 17px;
+}
+
+.register-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #343950;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.register-field input {
+  width: 100%;
+  height: 49px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d7dbea;
+  border-radius: 13px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #20243a;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.register-field input::placeholder {
+  color: #9ca1b2;
+}
+
+.register-field input:focus {
+  border-color: #6875e8;
+
+  box-shadow:
+    0 0 0 3px rgba(104, 117, 232, 0.12);
+}
+
+/* PASSWORD */
+
+.register-password-wrapper {
+  position: relative;
+}
+
+.register-password-wrapper input {
+  padding-right: 48px;
+}
+
+.register-password-toggle {
+  position: absolute;
+
+  right: 7px;
+  top: 50%;
+
+  width: 34px;
+  height: 34px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #777d96;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.register-password-toggle:hover {
+  color: #4e5bd6;
+  background: #eef0ff;
+}
+
+/* CREATE ACCOUNT */
+
+.create-account-button {
+  width: 100%;
+  height: 49px;
+
+  margin-top: 4px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: linear-gradient(135deg, #6d28d9, #2563eb);
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+  0 10px 24px rgba(37, 99, 235, 0.25),
+  0 4px 14px rgba(109, 40, 217, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.create-account-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+  0 14px 32px rgba(37, 99, 235, 0.35),
+  0 6px 18px rgba(109, 40, 217, 0.35);
+
+  filter: brightness(1.04);
+}
+
+.create-account-button:active {
+  transform: translateY(0);
+}
+
+/* LOGIN */
+
+.already-account {
+  margin: 21px 0 0;
+
+  text-align: center;
+
+  color: #777c91;
+
+  font-size: 13px;
+}
+
+.login-link {
+  margin-left: 5px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #5361d7;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.login-link:hover {
+  color: #3e4cc0;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 20px 15px;
+  }
+
+  .register-card {
+    max-width: 100%;
+    padding: 31px 23px 27px;
+    border-radius: 25px;
+  }
+
+  .register-card h1 {
+    font-size: 22px;
+  }
+
+  .register-subtitle {
+    font-size: 12.5px;
+  }
+}
+.username-notice {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.5;
+  text-align: left;
+}
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  border: 1px solid #6b7280;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+}
+.password-notice {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.5;
+  text-align: left;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+.register-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.register-error {
+  margin: 8px 0 12px;
+  color: #dc2626;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+}
+/* FIX REGISTER DESKTOP LAYOUT */
+
+.register-page {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.register-split-layout {
+  width: min(1180px, 94%);
+  height: 100vh;
+  min-height: 0;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  align-items: center;
+  gap: 60px;
+
+  box-sizing: border-box;
+}
+
+.register-ai-section {
+  width: 100%;
+  min-width: 0;
+}
+
+.register-form-section {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =====================================
+   MOBILE ONLY - REGISTER PAGE FIX
+   LAPTOP/DESKTOP UNCHANGED
+===================================== */
+
+@media (max-width: 700px) {
+
+  /* Hide AI meeting animation */
+  .register-ai-section {
+    display: none !important;
+  }
+
+  /* Full mobile screen */
+  .register-page {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto !important;
+
+    padding: 24px 16px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    box-sizing: border-box;
+  }
+
+  /* Remove desktop grid */
+  .register-split-layout {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0 !important;
+  }
+
+  /* Registration form */
+  .register-form-section {
+    width: 100% !important;
+    max-width: 440px !important;
+
+    margin: 0 auto;
+  }
+
+  .register-card {
+    width: 100% !important;
+    max-width: 440px !important;
+
+    box-sizing: border-box;
+
+    padding: 31px 23px 27px !important;
+    border-radius: 25px;
+  }
+
+  .register-card h1 {
+    font-size: 22px;
+  }
+
+  .register-subtitle {
+    font-size: 12.5px;
+  }
+}
+
+/* OFFICIAL MEETNOVA LOGO - ALL DEVICES */
+
+.register-camera-icon {
+  display: none !important;
+}
+
+.register-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
